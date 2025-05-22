@@ -14,6 +14,11 @@ app.use(express.json());
 const schoolRoutes = require('./routes/schools');
 app.use('/api', schoolRoutes);
 
+// ✅ Add this to handle base URL
+app.get('/', (req, res) => {
+    res.send('Welcome to the School Management API');
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
